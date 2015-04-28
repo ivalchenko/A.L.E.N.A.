@@ -12,10 +12,9 @@ namespace ConsoleApplication1
         {
             Alice alice = new Alice();
             string message = "";
-            string answer = "";
+            string latestAnswer = "";
 
-            
-                System.Console.WriteLine("Hello now you start to talk with A.L.I.C.E. Write something :)");
+                System.Console.WriteLine("Hello now you start to talk with A.L.E.N.A. Write something down:");
                 while (!message.Equals("stop"))
                 {
                 try
@@ -35,8 +34,9 @@ namespace ConsoleApplication1
                     Console.ReadKey(true);
                 }
 
-                answer = alice.SetAction(alice.DefineAction(message));
-                System.Console.WriteLine(answer);
+                System.Console.WriteLine(alice.SetAction(alice.DefineAction(message.ToLower())));
+                latestAnswer = message;
+                alice.SetLatestAnswer(latestAnswer);
             }
 
             Console.ReadKey(true);
